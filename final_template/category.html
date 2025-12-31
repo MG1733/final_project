@@ -1,0 +1,29 @@
+{% extends "template1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specific category</title>
+</head>
+<body>
+{% block content %}
+    <h1> Category - {{cat}} </h1>
+    {% if Articles  %}
+    {% for i in Articles %}
+        <div class="blog-post">
+            <h1 style="color:gray;">Not trending articles</h1>
+            <h2 class="blog-post-title"><a href="{% url "detail_desc" i.slug %}">{{i.title}}</a></h2>
+            <p class="blog-post-meta">{{i.Updated_at}}<a href="#">{{i.author}}</a></p>
+
+            <p class="card-text">{{i.short_description | truncatewords:60}}</p>
+            <p>This is the large description about the <a href="#">{{i.title}} </a></p>
+
+            
+            </div>v
+    {% endfor %}
+    {% else %}
+       <p>No articles are present here</p>
+    {% endif %}
+{% endblock content %}
+</body>

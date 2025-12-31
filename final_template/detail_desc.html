@@ -1,0 +1,32 @@
+{% extends "template1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article>
+                        <header class="mb-4">
+                            <h1 class="fw-bolder mb-1">{{Articles.title}}</h1>
+                        <div class="text-muted fst-italic mb-2">Posted on {{Articles.updated_At}}, 2023 by {{Articles.author}}</div>
+                            <a class="badge bg-primary text-decoration-none text-light" href="#!">{{Articles.category}}</a>
+                        </header>
+                        <figure class="mb-4"><img class="img-fluid rounded"
+                                src="{{Articles.image.url}}" alt="..." /></figure>
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">{{Articles.detail_description}}</p>
+                        </section>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+    {% endblock content %}
+</body>
+</html>
